@@ -1,7 +1,7 @@
 package javaspring.carservice.service;
 
-
 import javaspring.carservice.dto.CarDto;
+import javaspring.carservice.dto.CreateCarDto;
 import javaspring.carservice.entity.Car;
 import javaspring.carservice.mapper.CarMapper;
 import javaspring.carservice.repository.CarRepository;
@@ -36,11 +36,16 @@ public class CarService {
         return carRepository.findById(id).map(carMapper::toDto);
     }
 
-    public CarDto createCar(CarDto carDto) {
-        Car car = carMapper.toEntity(carDto);
+    public CarDto createCar(CreateCarDto createCarDto) {
+        Car car = Car.builder()
+                .model(createCarDto.model())
+                .enginePower(createCarDto.enginePower())
+                .torque(createCarDto.torque())
+                .build();
         Car savedCar = carRepository.save(car);
         return carMapper.toDto(savedCar);
     }
+
 
     public CarDto updateCar(Long id, CarDto carDto) {
         Car car = carRepository.findById(id)

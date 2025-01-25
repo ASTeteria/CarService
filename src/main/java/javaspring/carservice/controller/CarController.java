@@ -3,6 +3,7 @@ package javaspring.carservice.controller;
 
 import jakarta.validation.Valid;
 import javaspring.carservice.dto.CarDto;
+import javaspring.carservice.dto.CreateCarDto;
 import javaspring.carservice.service.CarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +21,8 @@ public class CarController {
 
     @Secured({"USER", "ADMIN"})
     @PostMapping
-    public CarDto createCar(@RequestBody @Valid CarDto carDto) {
-        return carService.createCar(carDto);
+    public CarDto createCar(@RequestBody @Valid CreateCarDto createCarDto) {
+        return carService.createCar(createCarDto);
     }
 
     @GetMapping("/{id}")
