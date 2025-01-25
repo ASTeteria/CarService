@@ -13,4 +13,3 @@ public record CreateCarDto(
         @Positive(message = "Torque must be greater than 0")
         int torque
 ) {}
-

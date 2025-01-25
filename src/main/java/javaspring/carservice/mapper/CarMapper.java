@@ -1,20 +1,24 @@
 package javaspring.carservice.mapper;
 
 
-import javaspring.carservice.dto.CarDto;
 import javaspring.carservice.entity.Car;
+import org.javaspring.carservice.api.dto.CarDto;
+import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
 
-import java.time.LocalDateTime;
-
-@Mapper(componentModel = "spring", imports = LocalDateTime.class)
+@Mapper(componentModel = "spring")
 public interface CarMapper {
 
-    @Mapping(target = "lastMaintenanceTimestamp", expression = "java(LocalDateTime.now())")
-    CarDto toDto(Car car);
+    CarDto mapToDto(Car car);
 
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "lastMaintenanceTimestamp", expression = "java(null)")
-    Car toEntity(CarDto carDto);
+    Car mapToEntity(CarDto dto);
+
+    Car updateEntity(@MappingTarget Car entity, CarDto updateWith);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    Car updateEntityPartially(@MappingTarget Car entity, CarDto updateWith);
+
+
 }
