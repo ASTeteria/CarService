@@ -36,12 +36,12 @@
         <swagger-annotations.version>2.2.20</swagger-annotations.version>
 
         <zenwave.version>1.4.1</zenwave.version>
-        <event-api-package>org.javaspring.carservice.api.event</event-api-package>
+        <event-api-package>javaspring.carservice.api.event</event-api-package>
         <asyncapi-spec-file>${project.basedir}/src/main/resources/spec/carservice-asyncapi.yaml</asyncapi-spec-file>
 
         <openapi-generator.version>7.2.0</openapi-generator.version>
         <openapi-spec-file>${project.basedir}/src/main/resources/spec/carservice-openapi.yaml</openapi-spec-file>
-        <api-package>org.javaspring.carservice.api</api-package>
+        <api-package>javaspring.carservice.api</api-package>
     </properties>
     <dependencyManagement>
         <dependencies>

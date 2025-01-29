@@ -3,8 +3,8 @@ package javaspring.carservice.controller;
 
 import javaspring.carservice.service.CarService;
 import lombok.RequiredArgsConstructor;
-import org.javaspring.carservice.api.controller.CarsApi;
-import org.javaspring.carservice.api.dto.CarDto;
+import javaspring.carservice.api.controller.CarsApi;
+import javaspring.carservice.api.dto.CarDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;

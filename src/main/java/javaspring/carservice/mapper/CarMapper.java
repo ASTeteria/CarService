@@ -2,7 +2,7 @@ package javaspring.carservice.mapper;
 
 
 import javaspring.carservice.entity.Car;
-import org.javaspring.carservice.api.dto.CarDto;
+import javaspring.carservice.api.dto.CarDto;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;

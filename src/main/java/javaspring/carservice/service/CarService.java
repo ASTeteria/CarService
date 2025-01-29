@@ -1,14 +1,16 @@
 package javaspring.carservice.service;
 
+import javaspring.carservice.api.event.dto.CarDeletedPayload;
+import javaspring.carservice.api.event.producer.ICarEventsProducer;
 import javaspring.carservice.entity.Car;
 
 import javaspring.carservice.mapper.CarMapper;
 import javaspring.carservice.repository.CarRepository;
 import lombok.RequiredArgsConstructor;
-import org.javaspring.carservice.api.dto.CarDto;
-import org.javaspring.carservice.api.event.dto.CarDeletedPayload;
+import javaspring.carservice.api.dto.CarDto;
 
-import org.javaspring.carservice.api.event.producer.ICarEventsProducer;
+
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
