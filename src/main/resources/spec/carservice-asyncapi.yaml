@@ -48,7 +48,7 @@ components:
     CarDeletedPayload:
       type: object
       properties:
-        productId:
+        carId:
           type: integer
           format: int64
           description: Car id

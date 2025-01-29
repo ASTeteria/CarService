@@ -271,7 +271,7 @@
                             <generatorName>spring-cloud-streams3</generatorName>
                             <inputSpec>${asyncapi-spec-file}</inputSpec>
                             <configOptions>
-                                <operationIds>productDeleted</operationIds>
+                                <operationIds>carDeleted</operationIds>
                                 <role>provider</role>
                                 <style>imperative</style>
                                 <apiPackage>${event-api-package}.producer</apiPackage>

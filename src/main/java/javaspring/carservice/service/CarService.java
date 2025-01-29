@@ -1,12 +1,14 @@
 package javaspring.carservice.service;
 
 import javaspring.carservice.entity.Car;
-import javaspring.carservice.event.CarDeletedEvent;
-import javaspring.carservice.event.CarEventProducer;
+
 import javaspring.carservice.mapper.CarMapper;
 import javaspring.carservice.repository.CarRepository;
 import lombok.RequiredArgsConstructor;
 import org.javaspring.carservice.api.dto.CarDto;
+import org.javaspring.carservice.api.event.dto.CarDeletedPayload;
+
+import org.javaspring.carservice.api.event.producer.ICarEventsProducer;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,7 +21,8 @@ public class CarService {
 
     private final CarRepository carRepository;
     private final CarMapper carMapper;
-    private final CarEventProducer carEventProducer;
+    private final ICarEventsProducer carEventsProducer;
+
 
 //    public List<CarDto> getCarsByEnginePowerRange(Integer minEnginePower, Integer maxEnginePower) {
 //        List<Car> cars;
@@ -66,7 +69,9 @@ public class CarService {
             throw new IllegalArgumentException("Car with id " + id + " not found");
         }
         carRepository.deleteById(id);
-        carEventProducer.produceCarDeletedEvent(new CarDeletedEvent(id));
+        carEventsProducer.carDeleted(new CarDeletedPayload()
+                .withCarId(id));
+
 
     }
 
